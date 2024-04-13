@@ -57,12 +57,16 @@ if (s(1:1).eq.p(1:1)) then   !So this if statement works
 else
 result = .false.
 end if 
+
 if (j.eq.length) then 
 result = .true.
-
 end if 
 
-WRITE(*,'(A)') (ADJUSTL(result))
+if (result.eqv..true.) then 
+    WRITE(*,'(A)') TRIM(ADJUSTL("Hey, it's true!"))
+else 
+    WRITE(*,'(A)') TRIM(ADJUSTL("Hey, it's false!"))
+end if 
 end Program Hello
 
 !check for s
@@ -98,8 +102,4 @@ logical function check_p(v)
         end if 
     end do 
 end function check_p
-
-
-
-
 
